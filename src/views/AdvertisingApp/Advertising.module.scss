@@ -1,0 +1,152 @@
+@import '@/styles/vars';
+@import '@/styles/mixin';
+
+.form {
+	margin: 30px;
+	padding: 20px 40px;
+	border-radius: $border-radius;
+	border: 2px solid $primary-light-lg;
+	background-color: $additional-light-sm;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
+.field {
+	display: flex;
+	flex-direction: column;
+	border-radius: $border-radius;
+	cursor: pointer;
+	&:hover {
+		input {
+			border-color: $select-base;
+		}
+	}
+	&__title {
+		margin-left: 20px;
+		padding: 10px 5px;
+		font-size: 32px;
+		text-align: center;
+	}
+	input {
+		min-width: 700px;
+		padding: 5px;
+		background-color: $additional-light-xs;
+		border-radius: $border-radius;
+		border: 3px solid $primary-light-lg;
+		color: $white;
+		font-size: 24px;
+		outline: none;
+		text-align: center;
+		transition: all 0.3s ease;
+	}
+	input:focus {
+		border-color: $select-base;
+	}
+}
+.period {
+	&__container {
+		display: flex;
+		justify-content: center;
+		input {
+			width: 140px;
+			padding: 5px;
+
+			border: 3px solid $primary-light-lg;
+			background-color: $additional-light-xs;
+			outline: none;
+			color: $white;
+			font-size: 24px;
+			text-align: center;
+			transition: all 0.3s ease;
+		}
+		input:nth-child(1) {
+			border-radius: $border-radius 0 0 $border-radius;
+			border-right: none;
+		}
+		input:nth-child(3) {
+			border-radius: 0 $border-radius $border-radius 0;
+			border-left: none;
+		}
+	}
+	&:hover {
+		input {
+			border-color: $select-base;
+			background-color: $additional-dark-sm;
+		}
+	}
+	input:focus {
+		border-color: $select-base;
+	}
+}
+.media {
+	max-width: 900px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	cursor: pointer;
+	input {
+		position: absolute;
+		bottom: 0;
+		overflow: 0;
+		z-index: -1;
+	}
+	input:focus {
+		& ~ .media__container,
+		& ~ .media__container > .media__caption {
+			border-color: $select-base;
+		}
+	}
+	&:hover {
+		.media__container,
+		.media__caption {
+			border-color: $select-base;
+		}
+	}
+	&__container {
+		border-radius: $border-radius;
+		border: 3px solid $primary-light-lg;
+		background-color: $additional-light-xs;
+		transition: all 0.3s ease;
+	}
+	&__image {
+		height: 400px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: $additional-light-xs;
+		video {
+			height: 100%;
+		}
+	}
+	&__caption {
+		padding: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		border-top: 3px solid $primary-light-lg;
+		position: relative;
+		z-index: +1;
+		transition: all 0.3s ease;
+	}
+	&__fileName {
+		font-size: 24px;
+		font-style: italic;
+	}
+}
+.submit {
+	@include stylesButton;
+	margin-top: 40px;
+	padding: 5px 20px;
+	font-size: 32px;
+	&:focus {
+		border-color: $select-base;
+	}
+	&:disabled {
+		border-color: $select-base;
+		background-color: $additional-dark-sm;
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+}

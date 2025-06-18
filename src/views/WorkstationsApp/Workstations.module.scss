@@ -1,0 +1,92 @@
+@import '@/styles/vars';
+@import '@/styles/mixin';
+
+.workstations {
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		@media (max-width: 1440px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: 1200px) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+	&__container {
+		display: flex;
+		flex-direction: column;
+		border-radius: $border-radius;
+		border: 3px solid $primary-light-lg;
+		background-color: $additional-light-sm;
+		transition: all 0.3s ease;
+		&:hover {
+			&,
+			.workstations__header,
+			.workstations__info,
+			.workstations__footer {
+				border-color: $primary-light-xl;
+			}
+			.workstations__title {
+				color: $select-base;
+			}
+		}
+	}
+	&__header {
+		border-bottom: 2px solid $primary-light-lg;
+		background-color: $additional-light-xs;
+		transition: all 0.3s ease;
+	}
+	&__title {
+		padding: 10px;
+		display: flex;
+		justify-content: center;
+		color: $primary-light-base;
+		font-size: 26px;
+		transition: all 0.3s ease;
+	}
+	&__body {
+		display: flex;
+	}
+	&__item {
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		font-size: 20px;
+	}
+	&__info {
+		flex: 1 0 50%;
+		border-right: 2px solid $primary-light-lg;
+		transition: all 0.3s ease;
+	}
+	&__printer {
+		flex: 1 0 50%;
+	}
+	&__param {
+		display: flex;
+		gap: 5px;
+	}
+	&__icon {
+		color: $primary-light-base;
+	}
+	&__icon {
+		color: $primary-light-base;
+	}
+	&__caption {
+		color: $primary-light-xl;
+	}
+	&__footer {
+		padding: 15px 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: $additional-light-xs;
+		border-top: 2px solid $primary-light-lg;
+		transition: all 0.3s ease;
+	}
+	&__btn {
+		@include stylesButton;
+		padding: 5px 20px;
+	}
+}

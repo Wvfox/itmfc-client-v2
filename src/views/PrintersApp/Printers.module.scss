@@ -1,0 +1,80 @@
+@import '@/styles/vars';
+@import '@/styles/mixin';
+
+.printers {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		border-radius: $border-radius;
+		border: 2px solid $primary-light-lg;
+		background-color: $additional-light-sm;
+	}
+	&__header {
+		padding: 20px 20px 10px;
+	}
+	&__list {
+		padding: 10px;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 20px;
+		@media (max-width: 1200px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media (max-width: 767px) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+	&__headline {
+		margin-left: 40px;
+		font-size: 32px;
+		display: flex;
+		gap: 10px;
+	}
+	&__icon {
+		color: $primary-light-base;
+	}
+	&__title {
+		color: $primary-light-xl;
+	}
+}
+.card {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	justify-content: center;
+	border-radius: $border-radius;
+	border: 2px solid $primary-light-lg;
+	background-color: $additional-light-xs;
+	transition: all 0.3s ease;
+	&:hover {
+		border-color: $primary-light-xl;
+	}
+	&__title {
+		font-size: 24px;
+	}
+	&__status {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	&__headline {
+		display: flex;
+		gap: 5px;
+	}
+	&__icon {
+		// color: $primary-light-base;
+	}
+	&__caption {
+		color: $primary-light-xl;
+	}
+	&__buttons {
+		padding: 10px 5px;
+	}
+	&__btn {
+		@include stylesButton;
+		padding: 5px 10px;
+	}
+}

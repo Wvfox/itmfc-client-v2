@@ -1,0 +1,36 @@
+$white: #fff;
+$black: #000;
+$gray: #333333;
+$gray-light-sm: lighten($gray, 30%);
+$gray-light-base: lighten($gray, 40%);
+$gray-light-lg: lighten($gray, 70%);
+
+$primary-base: #f58b00;
+$primary-dark-base: darken($primary-base, 7%);
+$primary-dark-lg: darken($primary-base, 22%);
+$primary-light-base: lighten($primary-base, 14%);
+$primary-light-lg: rgba($primary-base, 0.55);
+$primary-light-xl: lighten($primary-base, 28%);
+$additional-base: #302b2d;
+$additional-light-xs: lighten($additional-base, 4%);
+$additional-light-sm: lighten($additional-base, 7%);
+$additional-light-base: lighten($additional-base, 10%);
+$additional-light-lg: lighten($additional-base, 20%);
+$additional-dark-sm: darken($additional-base, 4%);
+$additional-dark-base: darken($additional-base, 30%);
+
+$select-base: #f8d4b2;
+$select-light-sm: lighten($select-base, 5%);
+$select-light-base: lighten($select-base, 10%);
+$select-dark-base: darken($select-base, 20%);
+
+$border-radius: 6px;
+
+$header-height: 70px;
+
+$nav-width: 64px;
+
+@mixin headerHeight() {
+	height: $header-height;
+	border-bottom: 4px solid $primary-light-lg;
+}

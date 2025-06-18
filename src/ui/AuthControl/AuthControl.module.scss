@@ -1,0 +1,68 @@
+@import '@/styles/vars';
+@import '@/styles/mixin';
+
+.auth {
+	margin: 50px auto;
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	border-radius: $border-radius;
+	border: 2px solid $primary-light-lg;
+	background-color: $additional-light-sm;
+	&__title {
+		display: flex;
+		justify-content: center;
+		font-size: 32px;
+		color: $select-base;
+		@media (max-width: 1200px) {
+			font-size: 24px;
+		}
+	}
+	&__label {
+		padding: 15px 100px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 20px;
+		@media (max-width: 1200px) {
+			padding: 10px;
+		}
+		&:hover input {
+			border-color: $select-base;
+		}
+		input {
+			padding: 5px;
+			width: 500px;
+			border-radius: $border-radius;
+			border: 2px solid $primary-base;
+			background-color: $additional-light-xs;
+			outline: none;
+			color: $white;
+			font-size: 24px;
+			transition: all 0.3s ease;
+			@media (max-width: 1200px) {
+				font-size: 20px;
+				width: auto;
+			}
+			@media (max-width: 800px) {
+				font-size: 16px;
+			}
+		}
+	}
+	&__button {
+		padding: 10px 30px;
+		margin: 10px auto;
+		width: fit-content;
+		display: flex;
+		justify-content: center;
+		background-color: $additional-light-xs;
+		border: 2px solid $primary-base;
+		color: $select-base;
+		font-size: 24px;
+		transition: all 0.3s ease;
+		&:hover {
+			border-color: $select-base;
+			color: $primary-base;
+		}
+	}
+}

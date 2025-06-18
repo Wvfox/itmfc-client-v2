@@ -1,0 +1,21 @@
+@mixin unselectable() {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+@mixin stylesButton() {
+	border-radius: $border-radius;
+	border: 2px solid $primary-base;
+	background-color: $additional-base;
+	color: $primary-light-xl;
+	transition: all 0.3s ease;
+	&:hover {
+		border-color: $primary-light-xl;
+		color: $primary-base;
+	}
+}

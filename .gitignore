@@ -1,0 +1,14 @@
+**/.vscode
+**/node_modules
+**/yarn.lock
+**.log
+**/.env
+**/package-lock.json
+**/.next
+**/.idea
+**/kiosk.**
+**/compilation
+**/out
+
+**/public/clips/*.*
+**/public/clip-to-download/*.*

@@ -1,0 +1,128 @@
+@import '@/styles/vars';
+@import '@/styles/mixin';
+
+.employee {
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+	&__container {
+		padding: 20px;
+		display: grid;
+		grid-template-areas:
+			'name name name'
+			'id departament birthday'
+			'username job telephone'
+			'tg_id ecp created'
+			'tg_tag is_head updated'
+			'is_admin email email';
+		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
+		border-radius: $border-radius;
+		border: 2px solid $primary-light-lg;
+		background-color: $additional-light-sm;
+		transition: all 0.3s ease;
+		@media (max-width: 1200px) {
+			grid-template-areas:
+				'name name'
+				'id departament'
+				'username job'
+				'tg_id ecp'
+				'tg_tag is_head'
+				'is_admin email'
+				'birthday telephone'
+				'created updated';
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: 767px) {
+			grid-template-areas:
+				'name'
+				'id '
+				'username '
+				'tg_id'
+				'tg_tag'
+				'departament'
+				'job'
+				'ecp'
+				'is_head'
+				'email'
+				'is_admin'
+				'birthday'
+				'telephone'
+				'created'
+				'updated';
+			grid-template-columns: repeat(1, 1fr);
+		}
+		&:hover {
+			border-color: $select-base;
+			.employee__header {
+				color: $select-base;
+			}
+		}
+	}
+	&__header {
+		margin-bottom: 10px;
+		grid-area: name;
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+		font-size: 28px;
+		color: $primary-light-base;
+		transition: all 0.3s ease;
+	}
+	&__icon {
+		color: $primary-light-base;
+	}
+	&__caption {
+		color: $primary-light-xl;
+		white-space: nowrap;
+	}
+	&__param {
+		display: flex;
+		gap: 10px;
+		font-size: 20px;
+		&_id {
+			grid-area: id;
+		}
+		&_username {
+			grid-area: username;
+		}
+		&_isAdmin {
+			grid-area: is_admin;
+		}
+		&_tgId {
+			grid-area: tg_id;
+		}
+		&_tgTag {
+			grid-area: tg_tag;
+		}
+		&_ecp {
+			grid-area: ecp;
+		}
+		&_departament {
+			grid-area: departament;
+		}
+		&_job {
+			grid-area: job;
+		}
+		&_isHead {
+			grid-area: is_head;
+		}
+		&_birthday {
+			grid-area: birthday;
+		}
+		&_email {
+			grid-area: email;
+		}
+		&_telephone {
+			grid-area: telephone;
+		}
+		&_created {
+			grid-area: created;
+		}
+		&_updated {
+			grid-area: updated;
+		}
+	}
+}
