@@ -8,7 +8,7 @@ export default function Layout({ children, tab, title }) {
 			<div className={styles.wrapper}>
 				<picture className={styles.logo}></picture>
 				<NavLayout />
-				<header className={styles.header}>
+				<header id='header' className={styles.header}>
 					<h1 className={styles.header__title}>{title}</h1>
 				</header>
 				<main className={styles.main}>{children}</main>

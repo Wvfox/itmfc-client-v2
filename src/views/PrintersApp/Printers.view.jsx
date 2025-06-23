@@ -1,13 +1,44 @@
 import cn from 'classnames'
 import { iconNames } from 'config/icons.data'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import Layout from 'shared/Layout/Layout'
+import BtnSubmit from 'ui/Buttons/Submit'
+import FieldWrapperInput from 'ui/Fields/Input'
+import AiIcon from 'ui/Icons/AiIcon'
 import FaIcon from 'ui/Icons/FaIcon'
+import PopupBasicWrap from 'ui/Popup/Popup.wrapper'
+import handleCloseEsc from 'utils/Popup/handleCloseEsc'
 import QueryDataStatus from 'utils/QueryData/queryDataStatus'
 import styles from './Printers.module.scss'
 import usePrinters from './usePrinters'
 
 export default function PrintersView({ tab }) {
+	const {
+		register,
+		control,
+		handleSubmit,
+		formState: { errors },
+		setFocus,
+		setValue,
+		reset,
+	} = useForm('onSubmit')
 	const { queryDataPrinters } = usePrinters()
+
+	const [isCreating, setIsCreating] = useState(false)
+
+	const handleOpen = () => {
+		setIsCreating(true)
+	}
+	const handleClose = () => {
+		setIsCreating(false)
+	}
+
+	// Закрытие модального окна при помощи клавиши Esc
+	useEffect(() => {
+		handleCloseEsc(isCreating, handleClose)
+	}, [isCreating])
+
 	return (
 		<Layout tab={tab} title='Список принтеров'>
 			<div className={styles.printers}>
@@ -18,6 +49,15 @@ export default function PrintersView({ tab }) {
 								<FaIcon name={iconNames.printer_type} />
 							</i>
 							<h3 className={styles.printers__title}>Type</h3>
+						</div>
+						<div className={styles.printers__buttons}>
+							<button
+								type='button'
+								className={styles.printers__btn}
+								onClick={() => handleOpen()}
+							>
+								Добавить
+							</button>
 						</div>
 					</div>
 					<ul className={styles.printers__list}>
@@ -40,9 +80,46 @@ export default function PrintersView({ tab }) {
 											История
 										</button>
 									</div>
+									<button type='button' className={styles.card__del}>
+										<AiIcon name={iconNames.close} />
+									</button>
 								</li>
 							))}
 					</ul>
+
+					<PopupBasicWrap
+						status={isCreating}
+						title='Добавление принтера'
+						handleClose={handleClose}
+					>
+						<FieldWrapperInput
+							title='Модель принтера'
+							iconType='fa'
+							icon={iconNames.printer_type}
+							error={errors.model_printer}
+						>
+							<input
+								{...register('model_printer ')}
+								placeholder=''
+								autoComplete='off'
+								disabled
+							/>
+						</FieldWrapperInput>
+						<FieldWrapperInput
+							required
+							title='IP-адрес'
+							iconType='ai'
+							icon={iconNames.printers}
+							error={errors.ip_printer}
+						>
+							<input
+								{...register('ip_printer')}
+								placeholder=''
+								autoComplete='off'
+							/>
+						</FieldWrapperInput>
+						<BtnSubmit title='Добавить' />
+					</PopupBasicWrap>
 				</section>
 			</div>
 		</Layout>

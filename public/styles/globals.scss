@@ -60,7 +60,7 @@ pre {
 /* General */
 
 body {
-	background-color: #fff;
+	background-color: $additional-base;
 	color: #333;
 	font-size: 20px;
 	overflow-x: hidden;
@@ -69,10 +69,20 @@ button {
 	color: #333;
 }
 
+//
+
+._lockBody {
+	overflow: hidden;
+	padding-right: $scrollbar-width;
+	#header {
+		padding-right: $scrollbar-width;
+	}
+}
+
 /* Scrollbar */
 
 *::-webkit-scrollbar {
-	width: 8px;
+	width: $scrollbar-width;
 	background-color: $additional-base;
 	// background-color: $additional-light-sm;
 }

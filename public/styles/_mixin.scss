@@ -1,3 +1,42 @@
+@mixin adaptive-value(
+	$property,
+	$startSize,
+	$minSize,
+	$type: 0,
+	$maxWidthContainer: 0
+) {
+	$maxWidth: 1920;
+	$minWidth: 768;
+	$addSize: $startSize - $minSize;
+	@if $type==1 {
+		//Срабатывает только при ширине меньшей ограничивающего контейнера
+		#{$property}: $startSize + px;
+		@media (max-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(
+				#{$minSize + px} + #{$addSize} *
+					((100vw - #{$minWidth + px}) / #{$maxWidthContainer - $minWidth})
+			);
+		}
+	} @else if $type==2 {
+		//Срабатывает только при ширине большей ограничивающего контейнера
+		#{$property}: $startSize + px;
+		@media (min-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(
+				#{$minSize + px} + #{$addSize} *
+					((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth})
+			);
+		}
+	} @else {
+		//Срабатывает независимо от ширины ограничивающего контейнера
+		#{$property}: calc(
+			#{$minSize +
+				px} +
+				#{$addSize} *
+				((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth})
+		);
+	}
+}
+
 @mixin unselectable() {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */

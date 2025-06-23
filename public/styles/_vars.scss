@@ -1,6 +1,16 @@
+$adaptive-first: 1024px;
+$adaptive-second: 768px;
+$adaptive-third: 680px;
+$adaptive-fourth: 480px;
+$adaptive-fifth: 340px;
+$adaptive-additional: 1440px;
+
+$scrollbar-width: 8px;
+
 $white: #fff;
 $black: #000;
-$gray: #333333;
+$gray: #333;
+$gray-dark: darken($gray, 10%);
 $gray-light-sm: lighten($gray, 30%);
 $gray-light-base: lighten($gray, 40%);
 $gray-light-lg: lighten($gray, 70%);
@@ -19,6 +29,7 @@ $additional-light-lg: lighten($additional-base, 20%);
 $additional-dark-sm: darken($additional-base, 4%);
 $additional-dark-base: darken($additional-base, 30%);
 
+$select-del: #dd3131;
 $select-base: #f8d4b2;
 $select-light-sm: lighten($select-base, 5%);
 $select-light-base: lighten($select-base, 10%);

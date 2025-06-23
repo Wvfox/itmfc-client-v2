@@ -11,6 +11,9 @@
 	}
 	&__header {
 		padding: 20px 20px 10px;
+		display: flex;
+		align-items: center;
+		position: relative;
 	}
 	&__list {
 		padding: 10px;
@@ -36,6 +39,14 @@
 	&__title {
 		color: $primary-light-xl;
 	}
+	&__buttons {
+		position: absolute;
+		right: 30px;
+	}
+	&__btn {
+		@include stylesButton;
+		padding: 5px 10px;
+	}
 }
 .card {
 	padding: 10px;
@@ -47,6 +58,7 @@
 	border-radius: $border-radius;
 	border: 2px solid $primary-light-lg;
 	background-color: $additional-light-xs;
+	position: relative;
 	transition: all 0.3s ease;
 	&:hover {
 		border-color: $primary-light-xl;
@@ -76,5 +88,16 @@
 	&__btn {
 		@include stylesButton;
 		padding: 5px 10px;
+	}
+	&__del {
+		padding: 5px;
+		color: $white;
+		position: absolute;
+		top: 0;
+		right: 0;
+		transition: all 0.3s ease;
+		&:hover {
+			color: $select-del;
+		}
 	}
 }

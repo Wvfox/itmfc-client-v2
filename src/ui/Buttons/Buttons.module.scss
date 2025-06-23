@@ -1,0 +1,51 @@
+@import '@/styles/vars';
+@import '@/styles/mixin';
+
+.submit {
+	@include unselectable;
+	padding: 5px 15px;
+	margin: 20px auto 0;
+	width: max-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: $border-radius;
+	border: 2px solid $primary-dark-lg;
+	background-color: $additional-base;
+	cursor: pointer;
+	font-size: 24px;
+	transition: all 0.4s ease;
+	@media (max-width: $adaptive-first) {
+		padding: 5px 20px;
+		border-radius: 20px;
+	}
+	&.hover {
+		&_select {
+			&:hover {
+				color: $select-base;
+				border-color: $select-base;
+				box-shadow: 0 0 10px $select-base;
+			}
+		}
+		// &_delete {
+		// 	&:hover {
+		// 		color: $emmy-delete;
+		// 		border-color: $emmy-delete;
+		// 		box-shadow: 0 0 10px $emmy-delete;
+		// 	}
+		// }
+	}
+	&.size {
+		&_medium {
+			& span:first-child {
+				@include adaptive-value('height', 34, 20);
+				@include adaptive-value('width', 4, 2);
+				@include adaptive-value('right', 0, 8);
+			}
+			& span:last-child {
+				@include adaptive-value('width', 34, 20);
+				@include adaptive-value('height', 4, 2);
+			}
+		}
+	}
+}

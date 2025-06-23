@@ -1,0 +1,147 @@
+@import '@/styles/vars';
+@import '@/styles/mixin';
+
+.popup {
+	padding-left: 8px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 15;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 0.3s ease 0s;
+	&_active {
+		padding-left: 0;
+		opacity: 1;
+		visibility: visible;
+		pointer-events: all;
+	}
+}
+.body {
+	padding: 30px;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.container {
+	border-radius: 20px;
+	border: 2px solid $primary-light-lg;
+	background-color: $additional-dark-sm;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.5s ease 0s;
+}
+.title {
+	@include adaptive-value('margin-bottom', 30, 15);
+	@include adaptive-value('font-size', 40, 20);
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 40px;
+	display: block;
+	font-style: italic;
+	text-align: center;
+	letter-spacing: 2px;
+	@media (max-width: $adaptive-first) {
+		margin-bottom: 30px;
+		font-size: 22px;
+	}
+}
+.close {
+	@include adaptive-value('font-size', 24, 18);
+	padding: 7px;
+	display: flex;
+	border-top-right-radius: 50%;
+	color: rgba($white, 0.75);
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	transition: all 0.3s ease;
+	&:hover {
+		color: $select-base;
+	}
+}
+.header {
+	padding: 15px;
+	@include adaptive-value('padding', 10, 0);
+	display: flex;
+	position: relative;
+	&__title {
+		padding: 0 10px;
+		width: 100%;
+		text-align: center;
+		@include adaptive-value('font-size', 42, 12);
+	}
+	&__close {
+		padding: 25px;
+		margin-left: auto;
+		display: block;
+		width: 30px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			height: 2px;
+			width: 30px;
+			display: block;
+			// background-color: $chris-secondary-base;
+			transition: all 0.3s ease;
+		}
+		&:before {
+			transform: rotate(45deg);
+		}
+		&:after {
+			transform: rotate(-45deg);
+		}
+		&:hover {
+			&:before,
+			&:after {
+				background-color: $select-base;
+			}
+		}
+	}
+}
+.size {
+	&_medium {
+		padding: 30px 30px;
+		@include adaptive-value('width', 700, 600);
+	}
+	&_lg {
+		padding: 30px 40px;
+		@include adaptive-value('width', 850, 750);
+	}
+	&_xl {
+		padding: 30px 40px;
+		@include adaptive-value('width', 1100, 900);
+	}
+	&_medium,
+	&_lg,
+	&_xl {
+		@media (max-width: $adaptive-first) {
+			width: 700px;
+		}
+		@media (max-width: $adaptive-second) {
+			width: 600px;
+		}
+		@media (max-width: $adaptive-third) {
+			width: 500px;
+		}
+		@media (max-width: $adaptive-fourth) {
+			width: 380px;
+		}
+	}
+}

@@ -1,0 +1,193 @@
+@import '@/styles/vars';
+@import '@/styles/mixin';
+
+.label {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	gap: 10px;
+	input,
+	textarea {
+		background-color: $additional-base;
+		caret-color: $select-base;
+		&:focus,
+		&:focus ~ i {
+			border-color: $primary-base;
+		}
+	}
+	&:hover {
+		input,
+		textarea {
+			border-color: $primary-light-base;
+			&::placeholder {
+				color: $white;
+			}
+		}
+		.icon {
+			border-color: $primary-light-base;
+		}
+	}
+	&_disabled {
+		cursor: not-allowed;
+	}
+	&_large {
+		textarea {
+			min-height: 400px;
+		}
+	}
+}
+.header {
+	display: flex;
+	// align-items: center;
+	gap: 10px;
+	@media (max-width: $adaptive-third) {
+		justify-content: center;
+	}
+	&_single {
+		cursor: default;
+	}
+	&__required {
+		@include adaptive-value('font-size', 24, 14);
+		color: $primary-base;
+	}
+	&__title {
+		@include adaptive-value('font-size', 26, 14);
+		align-self: flex-start;
+		cursor: pointer;
+		transition: color 0.4s ease;
+		@media (max-width: $adaptive-second) {
+			font-size: 18px;
+		}
+		@media (max-width: $adaptive-fourth) {
+			font-size: 14px;
+		}
+	}
+	&__counter {
+		@include adaptive-value('font-size', 30, 16);
+		font-family: 'Marck Script', cursive;
+		span {
+			color: $white;
+			letter-spacing: 5px;
+		}
+	}
+}
+.field {
+	margin: 10px 0 20px;
+	display: flex;
+	flex-direction: row-reverse;
+	position: relative;
+	input,
+	textarea {
+		@include adaptive-value('font-size', 22, 16);
+		width: 100%;
+		display: block;
+		outline: none;
+		border-radius: $border-radius;
+		border: 2px solid $primary-light-lg;
+		color: $white;
+		font-style: italic;
+		letter-spacing: 2px;
+		&::placeholder {
+			@include adaptive-value('font-size', 20, 16);
+			font-family: 'Marck Script', cursive;
+			transition: color 0.4s ease;
+		}
+		&:disabled {
+			cursor: not-allowed;
+		}
+	}
+	&__input {
+		@include adaptive-value('height', 48, 40);
+		@media (max-width: $adaptive-first) {
+			height: 40px;
+		}
+		@media (max-width: $adaptive-third) {
+			height: 34px;
+		}
+		input {
+			padding: 0 10px;
+			transition: all 0.4s ease;
+		}
+		&_icon input {
+			padding-left: 50px;
+		}
+	}
+	&__text {
+		textarea {
+			padding: 10px 10px 0;
+			min-height: 250px;
+			border-radius: 5px;
+			resize: vertical;
+			transition: height 0.1s ease, color 0.4s ease, border-color 0.4s ease,
+				box-shadow 0.4s ease;
+		}
+	}
+}
+.icon {
+	// @include adaptive-value('width', 45, 40);
+	margin-left: 2px;
+	padding: 0 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	font-size: 26px;
+	border-radius: $border-radius 0 0 $border-radius;
+	border-right: 2px solid $primary-light-lg;
+	position: absolute;
+	left: 0;
+	top: 0px;
+	bottom: 0px;
+	transition: all 0.4s ease;
+	&_pass {
+		cursor: pointer;
+	}
+}
+.error {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	right: 0;
+	border-radius: 6px;
+	border: 2px solid $gray-dark;
+	background-color: $black;
+	// color: $emmy-error;
+	font-size: 26px;
+	text-align: justify;
+	z-index: +1;
+	transform: translateY(100%);
+	&:after {
+		//Треугольник под заголовком
+		content: '';
+		width: 14px;
+		height: 14px;
+		position: absolute;
+		right: 15px;
+		background-color: $black;
+		border-top: 2px solid $gray-dark;
+		border-left: 2px solid $gray-dark;
+	}
+	&_top {
+		top: -76px;
+		// bottom: auto;
+		&:after {
+			// top: auto;
+			bottom: -8px;
+			transform: rotate(225deg);
+		}
+	}
+	&_bot {
+		bottom: -12px;
+		&:after {
+			top: -8px;
+			transform: rotate(45deg);
+		}
+	}
+}
+// ====================== SELECT =======================================
+.fieldSelect__title {
+	margin-bottom: 10px;
+	display: block;
+}
