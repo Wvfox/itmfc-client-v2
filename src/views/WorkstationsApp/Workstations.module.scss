@@ -6,10 +6,10 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 30px;
-		@media (max-width: 1440px) {
+		@media (max-width: $adaptive-additional) {
 			grid-template-columns: repeat(2, 1fr);
 		}
-		@media (max-width: 1200px) {
+		@media (max-width: $adaptive-first) {
 			grid-template-columns: repeat(1, 1fr);
 		}
 	}
@@ -20,6 +20,17 @@
 		border: 3px solid $primary-light-lg;
 		background-color: $additional-light-sm;
 		transition: all 0.3s ease;
+		&_new {
+			@include unselectable;
+			height: 262px;
+			border-style: dashed;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 42px;
+			opacity: 0.7;
+			cursor: pointer;
+		}
 		&:hover {
 			&,
 			.workstations__header,
@@ -30,6 +41,7 @@
 			.workstations__title {
 				color: $select-base;
 			}
+			opacity: 1;
 		}
 	}
 	&__header {
@@ -81,6 +93,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		gap: 30px;
 		background-color: $additional-light-xs;
 		border-top: 2px solid $primary-light-lg;
 		transition: all 0.3s ease;

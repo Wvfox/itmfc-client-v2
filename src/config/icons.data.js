@@ -28,4 +28,5 @@ export const iconNames = {
 	printer_type: 'FaCodeBranch',
 	assistant: 'FaDiscourse',
 	status: '',
+	desktop_name: 'FaHdd',
 }
