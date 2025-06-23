@@ -1,6 +1,7 @@
 export const iconNames = {
 	//
-	close: 'AiOutlineClose',
+	close: 'FaTimes',
+	edit: 'FaEdit',
 	// nav
 	home: 'AiFillHome',
 	advertising: 'AiFillTrademarkCircle',

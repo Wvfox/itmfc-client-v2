@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { iconNames } from 'config/icons.data'
-import AiIcon from 'ui/Icons/AiIcon'
+import FaIcon from 'ui/Icons/FaIcon'
 import styles from './Popup.module.scss'
 
 export default function PopupBasicWrap({
@@ -32,7 +32,7 @@ export default function PopupBasicWrap({
 						onClick={() => handleClose()}
 						type='button'
 					>
-						<AiIcon name={iconNames.close} />
+						<FaIcon name={iconNames.close} />
 					</button>
 					<h5 className={cn(styles.popup__title, styles.title)}>{title}</h5>
 					{children}

@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form'
 import Layout from 'shared/Layout/Layout'
 import BtnSubmit from 'ui/Buttons/Submit'
 import FieldWrapperInput from 'ui/Fields/Input'
-import AiIcon from 'ui/Icons/AiIcon'
 import FaIcon from 'ui/Icons/FaIcon'
 import PopupBasicWrap from 'ui/Popup/Popup.wrapper'
 import handleCloseEsc from 'utils/Popup/handleCloseEsc'
@@ -81,7 +80,7 @@ export default function PrintersView({ tab }) {
 										</button>
 									</div>
 									<button type='button' className={styles.card__del}>
-										<AiIcon name={iconNames.close} />
+										<FaIcon name={iconNames.close} />
 									</button>
 								</li>
 							))}

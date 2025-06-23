@@ -65,10 +65,12 @@
 		margin-bottom: 10px;
 		grid-area: name;
 		display: flex;
+		align-items: center;
 		justify-content: center;
-		gap: 10px;
+		gap: 14px;
 		font-size: 28px;
 		color: $primary-light-base;
+		position: relative;
 		transition: all 0.3s ease;
 	}
 	&__icon {
@@ -123,6 +125,24 @@
 		}
 		&_updated {
 			grid-area: updated;
+		}
+	}
+	&__edit {
+		padding-top: 10px 5px 5px 5px;
+		color: $primary-light-base;
+	}
+	&__del {
+		padding: 5px;
+		color: $primary-light-base;
+		position: absolute;
+		right: -5px;
+		top: -5px;
+	}
+	&__edit,
+	&__del {
+		transition: all 0.3s ease;
+		&:hover {
+			color: $select-base;
 		}
 	}
 }
